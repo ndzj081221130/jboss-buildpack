@@ -55,7 +55,7 @@ module LanguagePack
    end
    
    def jboss_dir
-     "jboss"
+     ".jboss"
    end
      
    def copy_ejb_to_jboss
@@ -63,13 +63,13 @@ module LanguagePack
    end
      
    def move_jboss_to_root  
-     run_with_err_output("mv #{jboss_dir}/* . && rm -rf #{jboss_dir}")
+     run_with_err_output("mv #{jboss_dir}/#{JBOSS_VERSION}/* . && rm -rf #{jboss_dir}")
    end
    
    def default_process_types
      
      {
-       "web" => "./bin/run.sh run"
+       "web" => "./bin/run.sh "
      }
    end
       
